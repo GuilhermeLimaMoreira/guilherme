@@ -6,42 +6,62 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENTRADAS(LDR)</title>
-    <h1>html
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <title>Circuito LDR com Foto Registor</title>
-        </head>
-        <body>
-          <h1>Circuito LDR com Foto Registor</h1>
-          
-          <h2>Diagrama do Circuito</h2>
-          <img src="circuito_ldr.png" alt="Diagrama do Circuito LDR com Foto Registor">
-          
-          <h2>Funcionamento</h2>
-          <p>Quando a luz incide sobre o LDR, sua resistência diminui, permitindo que o sinal de saída seja alto (1). Esse sinal alto (1) do LDR fecha o caminho do LED, impedindo que ele receba corrente e, portanto, permanecendo desligado.</p>
-          
-          <h2>Aplicações</h2>
-          <p>Esse circuito é comumente utilizado em sistemas de controle de iluminação, onde a presença de luz natural pode ser utilizada para desligar luzes artificiais, economizando energia.</p>
-          
-          <h2>Componentes Utilizados</h2>
-          <ul>
-            <li>LDR (Light Dependent Resistor)</li>
-            <li>LED (Light Emitting Diode)</li>
-            <li>Resistores</li>
-            <li>Fios de conexão</li>
-          </ul>
-          
-          <h2>Conclusão</h2>
-          <p>O circuito LDR com foto registor é um exemplo prático de como utilizar sensores de luz para controlar dispositivos eletrônicos. Esse tipo de circuito pode ser aplicado em diversas situações, como em sistemas de iluminação automática, alarmes de segurança e muito mais.</p>
-        </body>
-        </html></h1>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/4JtfDfFMp08?si=4OZr_PkgV_D3FKQz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/EYZdFFgVSck?si=RsdWYFAmPgQJEBCe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/2-MCJpa-hKA?si=JB2BRrEgCJTsa3hx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/fn2mXykQ7kA?si=hnBfxkPL1leMT4iN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</head>
-<body>
     
+        <body>
+          <h1>ENTRADAS(LDR)</h1>
+    <img src = "https://i.pinimg.com/originals/07/4b/4a/074b4a82457b3a09a2bd2ddadb808766.png">
+    <h2>Divisão da Aula</h2>
+    <p>A aula foi dividida em dois momentos distintos para explorar conceitos de circuitos e programação com Arduino:</p>
+    
+    <h3>Momento Um: Portas Lógicas</h3>
+    <p>No primeiro momento, realizamos a montagem dos circuitos das portas lógicas AND, OR e NOT. Utilizamos dois botões como entradas e um LED como saída. Os circuitos foram testados de acordo com as tabelas verdade para cada porta lógica.</p>
+    <p>Foram gerados 3 vídeos, um para cada porta lógica, demonstrando o funcionamento e os resultados dos testes.</p>
+    
+    <h3>Momento Dois: Circuito com Arduino</h3>
+    <p>No segundo momento, construímos um circuito elétrico com uma entrada (LDR - Light Dependent Resistor) e uma saída (LED). Utilizamos o Arduino para processar o valor analógico proveniente do LDR.</p>
+    <p>Foi gerado um vídeo que mostra o circuito em funcionamento e como o Arduino reage ao valor analógico do LDR para controlar o LED de saída.</p>
+    
+    <h2>Código Arduino</h2>
+    <pre><code>
+/***
+ * Edusesc Taguatinga      *
+ * Professor: Wendell      *
+ * Nome: Guilherme Lima  *
+ * Itinerário de robótica  *
+ * ***
+ */
+
+// Declaração de Variáveis e Constantes
+const int LED = 13;
+int LDR = A0;
+
+// Configurações
+void setup() {
+  pinMode(LED, OUTPUT);
+  pinMode(LDR, INPUT);
+  Serial.begin(9600);
+}
+
+// Repetições
+void loop() {
+  int luz = analogRead(LDR);
+  Serial.println(luz);
+
+  if (luz > 500) {
+    digitalWrite(LED, HIGH);
+  } 
+  else {
+    digitalWrite(LED, LOW);
+  }
+}
+    </code></pre>
+    <h2>Vídeos</h2>
+    <p>Assista aos vídeos gerados durante a aula:</p>
+    <ul>
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/YFGaPxFeuUk?si=riMDV8GkiDvFza8X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/cKtyBtb0TGc?si=hU0s44GSrulPtG23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/1fqEplXgxgQ?si=fQFyVBDNVdIGAquY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/mR1WD7mZlHA?si=fvaNFXeb6b1Z3tbO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </ul>
 </body>
 </html>
